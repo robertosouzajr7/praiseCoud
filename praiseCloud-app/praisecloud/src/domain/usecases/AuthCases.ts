@@ -4,11 +4,11 @@ import {
   loginResponse,
   singUpGroup,
 } from "../interfaces/index.Interfaces";
-
 import { Group } from "../entities/Group";
 import { Member } from "../entities/Member";
 import { TokenUser } from "../entities/TokenUser";
 
+//Auth case
 export const AuthCase = {
   login: async (data: loginResponse): Promise<TokenUser> => {
     const tokenUser = await AuthRepository.login(data);

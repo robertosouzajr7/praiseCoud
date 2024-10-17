@@ -7,10 +7,6 @@ import { AuthCase } from "../../domain/usecases/AuthCases";
 
 export default function SingUpGroupScreen({ navigation }: any) {
   const [email, setEmail] = useState<string>("");
-  const [nome, setNome] = useState<string>("");
-  const [telefone, setTelefone] = useState<string>("");
-  const [isAdmin, setIsAdmin] = useState<boolean>(true);
-  const [ImgPerfil, setImgPerfil] = useState<string>("");
   const [senha, setSenha] = useState<string>("");
   const [confirSenha, setConfirSenha] = useState<string>("");
 
@@ -24,7 +20,7 @@ export default function SingUpGroupScreen({ navigation }: any) {
       const user = await AuthCase.signUpGroup(data);
       Alert.alert("Grupo cadastrado com sucesso!");
 
-      navigation.navigate("Signup");
+      navigation.navigate("Login");
     } catch (error: any) {
       Alert.alert("Error", error.message);
     }
@@ -32,29 +28,13 @@ export default function SingUpGroupScreen({ navigation }: any) {
 
   return (
     <view>
-      <text>Cadastro</text>
-      <TextInput
-        placeholder="Nome"
-        style={styles.input}
-        value={nome}
-        onChangeText={setNome}
-        inputMode="text"
-        autoCapitalize="none"
-      />
+      <text>Login</text>
       <TextInput
         placeholder="E-mail"
         style={styles.input}
         value={email}
         onChangeText={setEmail}
-        inputMode="email"
-        autoCapitalize="none"
-      />
-      <TextInput
-        placeholder="Telefone"
-        style={styles.input}
-        value={telefone}
-        onChangeText={setTelefone}
-        inputMode="tel"
+        keyboardType="email-address"
         autoCapitalize="none"
       />
       <TextInput
@@ -63,20 +43,6 @@ export default function SingUpGroupScreen({ navigation }: any) {
         onChangeText={setSenha}
         placeholder="Senha"
         secureTextEntry={true}
-      />
-      <TextInput
-        style={styles.input}
-        value={"true"}
-        inputMode="text"
-        autoCapitalize="none"
-      />
-      <TextInput
-        placeholder="Imagem de Perfil"
-        style={styles.input}
-        value={ImgPerfil}
-        onChangeText={setImgPerfil}
-        inputMode="url"
-        autoCapitalize="none"
       />
       <Button title="Entrar" onPress={() => handleSignup({ email, senha })} />
       <Text style={styles.link} onPress={() => navigation.navigate("Signup")}>
