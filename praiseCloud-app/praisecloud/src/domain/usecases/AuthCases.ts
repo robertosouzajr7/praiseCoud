@@ -1,20 +1,17 @@
+import { AuthRepository } from "../../data/repositories/AuthRepository";
 import {
-  AuthRepository,
   SignUpMember,
   loginResponse,
-  loginUser,
-  newGroupCreated,
-  newMemberCreated,
   singUpGroup,
-} from "../../data/repositories/AuthRepository";
+} from "../interfaces/index.Interfaces";
 
 import { Group } from "../entities/Group";
 import { Member } from "../entities/Member";
 import { TokenUser } from "../entities/TokenUser";
 
 export const AuthCase = {
-  login: async (email: string, senha: string): Promise<TokenUser> => {
-    const tokenUser = await AuthRepository.login(email, senha);
+  login: async (data: loginResponse): Promise<TokenUser> => {
+    const tokenUser = await AuthRepository.login(data);
     return new TokenUser(tokenUser.token);
   },
 
