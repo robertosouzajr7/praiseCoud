@@ -31,8 +31,8 @@ export default function SingUpGroupScreen({ navigation }: any) {
   };
 
   return (
-    <view>
-      <text>Cadastro</text>
+    <View style={styles.container}>
+      <Text>Cadastro</Text>
       <TextInput
         placeholder="Nome"
         style={styles.input}
@@ -82,7 +82,7 @@ export default function SingUpGroupScreen({ navigation }: any) {
       <Text style={styles.link} onPress={() => navigation.navigate("Signup")}>
         Não tem uma conta? Cadastre-se
       </Text>
-    </view>
+    </View>
   );
 }
 

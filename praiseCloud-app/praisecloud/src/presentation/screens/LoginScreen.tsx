@@ -27,14 +27,14 @@ export default function SingUpGroupScreen({ navigation }: any) {
   };
 
   return (
-    <view>
-      <text>Login</text>
+    <View style={styles.container}>
+      <Text>Login</Text>
       <TextInput
         placeholder="E-mail"
         style={styles.input}
         value={email}
         onChangeText={setEmail}
-        keyboardType="email-address"
+        inputMode="email"
         autoCapitalize="none"
       />
       <TextInput
@@ -48,7 +48,7 @@ export default function SingUpGroupScreen({ navigation }: any) {
       <Text style={styles.link} onPress={() => navigation.navigate("Signup")}>
         Não tem uma conta? Cadastre-se
       </Text>
-    </view>
+    </View>
   );
 }
 
